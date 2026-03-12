@@ -1,7 +1,7 @@
 ---
 name: Validate Workflow
 
-on:
+"on":
   push:
     branches: [main]
   pull_request:
@@ -48,31 +48,31 @@ jobs:
           node --experimental-specifier-resolution=node scripts/rulesRunner.js
 
   package:
-      runs-on: ubuntu-latest
-      needs: test
-      steps:
-        - name: Checkout repository
-          uses: actions/checkout@v4
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-        - name: Create tar.gz package
-          run: |
-            tar -czf rock-paper-scissors.tar.gz \
-              index.html style.css scripts
-            echo "Package created: rock-paper-scissors.tar.gz"
+      - name: Create tar.gz package
+        run: |
+          tar -czf rock-paper-scissors.tar.gz \
+            index.html style.css scripts
+          echo "Package created: rock-paper-scissors.tar.gz"
 
-        - name: Upload artifact
-          uses: actions/upload-artifact@v4
-          with:
-            name: rock-paper-scissors
-            path: rock-paper-scissors.tar.gz
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rock-paper-scissors
+          path: rock-paper-scissors.tar.gz
 
-    docker:
-      runs-on: ubuntu-latest
-      needs: package
-      steps:
-        - name: Checkout repository
-          uses: actions/checkout@v4
+  docker:
+    runs-on: ubuntu-latest
+    needs: package
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-        - name: Build Docker image
-          run: |
-            docker build -t rock-paper-scissors:latest .
+      - name: Build Docker image
+        run: |
+          docker build -t rock-paper-scissors:latest .

@@ -28,6 +28,6 @@ jobs:
       - name: Check project files exist
         run: |
           test -f index.html
-          test -d js
-          test -d css
+          test -d scripts
+          test -f style.css
           echo "Validation passed!"

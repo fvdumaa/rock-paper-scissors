@@ -32,17 +32,17 @@ jobs:
           test -f style.css
           echo "Validation passed!"
 
-test:
-  runs-on: ubuntu-latest
-  needs: validate
-  steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+  test:
+    runs-on: ubuntu-latest
+    needs: validate
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: "20"
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
 
-    - name: Run game logic tests
-      run: node --experimental-specifier-resolution=node scripts/rulesRunner.js
+      - name: Run game logic tests
+        run: node --experimental-specifier-resolution=node scripts/rulesRunner.js

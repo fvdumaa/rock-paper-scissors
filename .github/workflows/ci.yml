@@ -81,17 +81,16 @@ jobs:
           docker build -t rock-paper-scissors:latest .
   
   deploy:
-  runs-on: ubuntu-latest
-  needs: docker
-  if: github.ref == 'refs/heads/main'
-  steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+    runs-on: ubuntu-latest
+    needs: docker
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Deploy (dry run)
-      run: |
-        echo "Starting deploy dry run..."
-        echo "This is a simulation — nothing is actually deployed."
-        # Example: pretend to push Docker image
-        echo "docker push rock-paper-scissors:latest --dry-run"
-        echo "Dry run complete."
+      - name: Deploy (dry run)
+        run: |
+          echo "Starting deploy dry run..."
+          echo "This is a simulation — nothing is actually deployed."
+          echo "docker push rock-paper-scissors:latest --dry-run"
+          echo "Dry run complete."

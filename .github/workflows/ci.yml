@@ -8,7 +8,8 @@ name: Validate Workflow
     branches: [main]
 
 env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true   # <-- forces Node 24 for all JS actions (gits rid of warning in workflow)
+  # Forces Node 24 for all JS actions (suppresses Node 20 deprecation warning)
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   validate:
@@ -79,7 +80,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t rock-paper-scissors:latest .
-  
+
   deploy:
     runs-on: ubuntu-latest
     needs: docker

@@ -1,0 +1,32 @@
+name: Validate Workflow
+
+on:
+  push: 
+    brancehs: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python to install yamlint
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Install yamllint
+        run: pip install yamllint
+
+      - name: Validate workflow YAML
+        run: yamllint .github/workflows/ci.yml
+
+      - name: Check project files exist
+        run: |
+          test -f index.html     # Check HTML exists
+          test -d js             # Check JS folder exists
+          test -d css            # Check CSS folder exists
+          echo "Validation passed!"

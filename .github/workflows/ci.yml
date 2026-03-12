@@ -1,5 +1,5 @@
 ---
-name: Validate Workflow
+name: CI pipeline
 
 "on":
   push:

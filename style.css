@@ -1,9 +1,25 @@
 :root {
   /* Primary */
-  --scissors-gradient: linear-gradient(to right, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
-  --paper-gradient: linear-gradient(to right, hsl(230, 89%, 62%), hsl(230, 89%, 65%));
-  --rock-gradient: linear-gradient(to right, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
-  --lizard-gradient: linear-gradient(to right, hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+  --scissors-gradient: linear-gradient(
+    to right,
+    hsl(39, 89%, 49%),
+    hsl(40, 84%, 53%)
+  );
+  --paper-gradient: linear-gradient(
+    to right,
+    hsl(230, 89%, 62%),
+    hsl(230, 89%, 65%)
+  );
+  --rock-gradient: linear-gradient(
+    to right,
+    hsl(349, 71%, 52%),
+    hsl(349, 70%, 56%)
+  );
+  --lizard-gradient: linear-gradient(
+    to right,
+    hsl(261, 73%, 60%),
+    hsl(261, 72%, 63%)
+  );
   --cyan: linear-gradient(to right, hsl(189, 59%, 53%), hsl(189, 58%, 57%));
 
   /* Neutral */
@@ -16,23 +32,23 @@
 
   /*Misc*/
   --game-button-gradient: var(--scissors-gradient);
-  --game-button-height:150px;
-  --game-button-width:150px;
+  --game-button-height: 150px;
+  --game-button-width: 150px;
 }
 
 @font-face {
-  font-family: 'Barlow_Semi_Condensed';
+  font-family: "Barlow_Semi_Condensed";
   src: url(./fonts/Barlow_Semi_Condensed/BarlowSemiCondensed-Regular.ttf);
 }
 
 body {
   display: grid;
-  container: body /inline-size;
+  container: body / inline-size;
   max-width: 100svw;
   min-height: 100svh;
   margin: 0;
   background: var(--radial-gradient);
-  font-family: 'Barlow_Semi_Condensed';
+  font-family: "Barlow_Semi_Condensed";
   align-content: baseline;
   justify-items: center;
   color: var(--dark-text);
@@ -62,20 +78,20 @@ main {
 
 div[class="attribution"] {
   color: white;
-	position: absolute;
-	bottom: 20px;
-	left: 0;
-	right: 0;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
 }
 
 @media (width <1000px) {
-  :root{
+  :root {
     --game-button-height: 50px;
     --game-button-width: 50px;
   }
 }
-@container(inline-size < 1000px){
-  main{
+@container (inline-size < 1000px) {
+  main {
     height: 650px;
     width: 375px;
   }
